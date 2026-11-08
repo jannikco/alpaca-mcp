@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "product": "pipmcp",
+  "credential": "PIPMCP_API_KEY",
+  "skills": [
+    {
+      "name": "pipmcp-alpaca",
+      "description": "Connect AI agents to Alpaca using one PipMCP API key and actual hosted tool discovery."
+    }
+  ],
+  "files": {
+    "skills/pipmcp-alpaca/SKILL.md": "a84aab09490516c44f52be206bf8fbbf51e168f9df5d4f70adc82c1d817e014c"
+  }
+}
