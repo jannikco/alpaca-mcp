@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "ready",
+  "verification": "mock-only",
+  "releaseEligible": true,
+  "maintainer": "jannikco",
+  "license": "MIT",
+  "sourceRevision": "3aaf9207742fa297586087557020958419d2d91508979ef228f66d271f74da82",
+  "evidence": [
+    "Source-backed provider setup metadata",
+    "Offline configuration and MCP protocol tests"
+  ],
+  "provenance": [
+    "https://docs.alpaca.markets/us/openapi/trading-api.json"
+  ],
+  "id": "alpaca-mcp",
+  "kind": "mcp-setup",
+  "product": "pipmcp",
+  "title": "Alpaca MCP setup and connection checker",
+  "description": "Generate Alpaca MCP client configuration, inspect available tools and validate hosted endpoint access through PipMCP.",
+  "operationIds": [],
+  "appSlug": "alpaca",
+  "appName": "Alpaca",
+  "providerDocs": "https://docs.alpaca.markets/us/openapi/trading-api.json",
+  "providerWebsite": "https://alpaca.markets/",
+  "authentication": {
+    "type": "basic",
+    "requiredCredentialFields": [
+      "username",
+      "password"
+    ],
+    "requiredHeaderNames": [],
+    "helpUrl": "https://docs.alpaca.markets/us/docs/authentication",
+    "tenantRequired": true,
+    "accountParameterNames": []
+  },
+  "attributionSlug": "github-alpaca-mcp"
+}
