@@ -1,15 +1,23 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
-  "product": "pipmcp",
-  "credential": "PIPMCP_API_KEY",
+  "version": "1.0.1",
+  "product": "heymyapps",
+  "credential": "HEYMYAPPS_API_KEY",
+  "credentialAliases": [
+    "PIPMCP_API_KEY"
+  ],
   "skills": [
     {
+      "name": "heymyapps-alpaca",
+      "description": "Connect AI agents to Alpaca using one HeyMyApps API key and actual hosted tool discovery."
+    },
+    {
       "name": "pipmcp-alpaca",
-      "description": "Connect AI agents to Alpaca using one PipMCP API key and actual hosted tool discovery."
+      "description": "Legacy skill name for Alpaca via HeyMyApps (formerly PipMCP)."
     }
   ],
   "files": {
-    "skills/pipmcp-alpaca/SKILL.md": "a84aab09490516c44f52be206bf8fbbf51e168f9df5d4f70adc82c1d817e014c"
+    "skills/heymyapps-alpaca/SKILL.md": "e034190256fb1cce992118202ec70719102fabb470db1561f497674497ccaef1",
+    "skills/pipmcp-alpaca/SKILL.md": "74b1355e789b8daf8cf74df57baad42f3e79c8e7d9e3c820f342e0ed67c4a9ff"
   }
 }

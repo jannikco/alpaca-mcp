@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "alpaca-mcp",
   "kind": "mcp-setup",
-  "product": "pipmcp",
+  "product": "heymyapps",
   "title": "Alpaca MCP setup and connection checker",
-  "description": "Prepare Alpaca for AI workflows with a PipMCP setup doctor, authenticated discovery and coding-agent instructions.",
+  "description": "Prepare Alpaca for AI workflows with a HeyMyApps setup doctor, authenticated discovery and coding-agent instructions.",
   "status": "ready",
   "verification": "mock-only",
   "releaseEligible": false,
@@ -29,8 +29,8 @@
   "appSlug": "alpaca",
   "appName": "Alpaca",
   "maintenanceOnly": true,
-  "executionAuthority": "pipmcp-gateway",
-  "version": "1.0.0",
+  "executionAuthority": "heymyapps-gateway",
+  "version": "1.0.1",
   "agentReady": true,
   "capabilityEvidence": {
     "local": {

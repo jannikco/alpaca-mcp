@@ -1,9 +1,9 @@
 {
   "name": "alpaca-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "license": "MIT",
-  "description": "Prepare Alpaca for AI workflows with a PipMCP setup doctor, authenticated discovery and coding-agent instructions.",
+  "description": "Prepare Alpaca for AI workflows with a HeyMyApps setup doctor, authenticated discovery and coding-agent instructions.",
   "engines": {
     "node": ">=22"
   },
