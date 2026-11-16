@@ -1,18 +1,22 @@
 {
   "schemaVersion": 1,
   "id": "alpaca-mcp",
-  "version": "1.0.0",
-  "product": "pipmcp",
+  "version": "1.0.1",
+  "product": "heymyapps",
   "artifactType": "Setup",
-  "credential": "PIPMCP_API_KEY",
+  "credential": "HEYMYAPPS_API_KEY",
+  "credentialAliases": [
+    "PIPMCP_API_KEY"
+  ],
   "connectorId": "alpaca",
-  "executionAuthority": "https://pipmcp.com/api/v1",
+  "executionAuthority": "https://heymyapps.com/api/v1",
   "inventory": "authenticated-dynamic",
   "verification": {
     "transport": "Tested",
     "providerExecution": "Documented"
   },
   "skills": [
+    "heymyapps-alpaca",
     "pipmcp-alpaca"
   ],
   "offlineMode": "plan-and-fixtures-only",

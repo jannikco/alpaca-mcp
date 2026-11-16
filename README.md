@@ -1,12 +1,12 @@
 # Plan an account-information setup review without placing trades
 
-**Alpaca + your AI assistant · powered by PipMCP**
+**Alpaca + your AI assistant · powered by HeyMyApps**
 
 You want an account-information setup review without placing trades, but first need to establish what Alpaca can support and what is ready in your account.
 
 **Made for:** Teams inspecting an investment-app integration
 
-This is a setup helper. You will need PipMCP and access to Alpaca to complete a connection.
+This is a setup helper. You will need HeyMyApps and access to Alpaca to complete a connection.
 
 ## Ask your AI to set this up
 
@@ -19,7 +19,7 @@ I'm not a programmer. My goal is: Plan an account-information setup review witho
 trades.
 
 Read the project instructions and set it up in a new folder without overwriting my work.
-Guide me through PipMCP and its private key setup; never ask me to paste secrets into this
+Guide me through HeyMyApps and its private key setup; never ask me to paste secrets into this
 chat. Start with the documented setup plan and explain what is still needed to connect my
 app. Explain the result in plain English. Ask before changing records, sending messages or
 publishing anything.
@@ -38,7 +38,7 @@ details or manual setup is still needed.
 ```
 
 ```text
-Check which suitable actions are actually available in my PipMCP account. If none are
+Check which suitable actions are actually available in my HeyMyApps account. If none are
 ready, stop with a missing-step checklist instead of pretending the business task has run.
 ```
 
@@ -46,16 +46,18 @@ ready, stop with a missing-step checklist instead of pretending the business tas
 
 ```mermaid
 flowchart LR
-  A["Define your goal"] --> B["Check connection needs"] --> C["Complete PipMCP setup"] --> D["Try an available<br/>action"]
+  A["Define your goal"] --> B["Check connection needs"] --> C["Complete HeyMyApps setup"] --> D["Try an available<br/>action"]
 ```
 
-1. [Open the connection guide](https://pipmcp.com/github/start?app=alpaca&integration=alpaca-mcp&utm_source=github&utm_campaign=github-alpaca-mcp&utm_content=people-first-readme) and check whether the app is available or needs an API import.
-2. Let your AI explain the required PipMCP account and provider permissions.
+1. [Open the connection guide](https://heymyapps.com/github/start?app=alpaca&integration=alpaca-mcp&utm_source=github&utm_campaign=github-alpaca-mcp&utm_content=people-first-readme) and check whether the app is available or needs an API import.
+2. Let your AI explain the required HeyMyApps account and provider permissions.
 3. Run the documented setup check. A successful check is not proof that provider actions ran.
 
-**What to expect:** You get a setup plan and connection checks. This project does not bundle a ready-made Alpaca action set. Importing an API or completing manual PipMCP settings may still be needed before any business task can run.
+**What to expect:** You get a setup plan and connection checks. This project does not bundle a ready-made Alpaca action set. Importing an API or completing manual HeyMyApps settings may still be needed before any business task can run.
 
-Add your PipMCP key privately in your project settings. Keep keys out of chat and public repositories.
+When your hosted integration publishes trading tools (for example `create_order`), those tools can place **real** orders. Use read-only discovery first, review each tool schema and confirm with a human before any write or trade.
+
+Add your HeyMyApps key privately in your project settings (`HEYMYAPPS_API_KEY`; `PIPMCP_API_KEY` still works). Keep keys out of chat and public repositories.
 
 ## Keep going
 
@@ -69,9 +71,9 @@ Add your PipMCP key privately in your project settings. Keep keys out of chat an
 <!-- people-first:technical:start -->
 # Alpaca MCP setup and connection checker
 
-**Prepare Alpaca for AI workflows with a PipMCP setup doctor, agent instructions and authenticated connector discovery.**
+**Prepare Alpaca for AI workflows with a HeyMyApps setup doctor, agent instructions and authenticated connector discovery.**
 
-[Activate with PipMCP](https://pipmcp.com/github/start?integration=alpaca-mcp&app=alpaca&utm_source=github&utm_campaign=github-alpaca-mcp) · [Integration directory](https://jannikco.github.io/pipmcp-connectors/integrations/alpaca/)
+[Activate with HeyMyApps](https://heymyapps.com/github/start?integration=alpaca-mcp&app=alpaca&utm_source=github&utm_campaign=github-alpaca-mcp) · [Integration directory](https://heymyapps.com/connect/alpaca)
 
 ## Build something useful
 
@@ -87,13 +89,13 @@ Requires Node.js 22+. Clone this repository, then:
 npm ci --ignore-scripts
 npm test
 npm start
-# After configuring your provider in PipMCP and setting PIPMCP_API_KEY:
+# After configuring your provider in HeyMyApps and setting HEYMYAPPS_API_KEY:
 npm start -- --live
 # Launch the stdio MCP bridge:
 npm run server
 ```
 
-Create a PipMCP API key with explicit connectors:read and connectors:call scopes. Set PIPMCP_API_KEY in the calling process environment. Provider credentials are configured in PipMCP. Multiple accounts require explicit PIPMCP_INTEGRATION_ID and PIPMCP_CONNECTION_ID from discovery. Existing keys do not gain scopes automatically.
+Create a HeyMyApps API key with explicit `connectors:read` and `connectors:call` scopes. Set `HEYMYAPPS_API_KEY` in the calling process environment (`PIPMCP_API_KEY` is accepted as an alias). Provider credentials are configured in HeyMyApps. Multiple accounts require explicit `HEYMYAPPS_INTEGRATION_ID` and `HEYMYAPPS_CONNECTION_ID` from discovery (aliases: `PIPMCP_INTEGRATION_ID`, `PIPMCP_CONNECTION_ID`, `PIPMCP_CONNECTOR_ID`). Existing keys do not gain scopes automatically.
 
 ## Built for coding agents
 
@@ -102,26 +104,27 @@ Install this repository's skill into your project:
 ```sh
 node lib/cli.mjs agents install --client codex --scope project --project /path/to/project
 # Use claude or grok for those clients.
+# Optional: --skill heymyapps-alpaca
 ```
 
-Connect AI agents to Alpaca using one PipMCP API key and actual hosted tool discovery. Native AGENTS.md, CLAUDE.md and project skills support the current coding session. No additional AI model key is required. [capabilities.json](capabilities.json) describes the package; [llms.txt](llms.txt) indexes its instructions.
+Connect AI agents to Alpaca using one HeyMyApps API key and actual hosted tool discovery. Native AGENTS.md, CLAUDE.md and project skills support the current coding session. No additional AI model key is required. [capabilities.json](capabilities.json) describes the package; [llms.txt](llms.txt) indexes its instructions.
 
 ## Inspect actual tools before calling
 
 ```js
-import {PipMCPGatewayClient} from './lib/index.mjs';
-const client = new PipMCPGatewayClient(); // PIPMCP_API_KEY
+import {HeyMyAppsGatewayClient} from './lib/index.mjs';
+const client = new HeyMyAppsGatewayClient(); // HEYMYAPPS_API_KEY or PIPMCP_API_KEY
 const inventory = await client.getTools("alpaca");
 console.log(inventory.data.tools);
 // Select a real tool and validate your arguments against its returned schema.
 // client.callTool(provider, actualToolName, reviewedArguments, {idempotencyKey});
 ```
 
-PipMCP enforces workspace, role, connection, policy/approval and usage controls. Preserve the original idempotency key when retrieving/resuming a receipt. Pending and confirmation_required are not completed provider results; uncertain writes are held for reconciliation. The bridge never auto-approves a hosted action.
+`PipMCPGatewayClient` remains exported for compatibility. HeyMyApps enforces workspace, role, connection, policy/approval and usage controls. Published Alpaca tool sets can include order placement. Preserve the original idempotency key when retrieving/resuming a receipt. Pending and confirmation_required are not completed provider results; uncertain writes are held for reconciliation. The bridge never auto-approves a hosted action.
 
 ## Version 1 migration
 
-This release uses the authenticated PipMCP gateway for real discovery/execution. Upgrade your MCP launch command and configure PIPMCP_API_KEY before reconnecting. Historical local runtimes remain available under their original MIT license in Git history. 
+This release uses the authenticated HeyMyApps gateway at `https://heymyapps.com/api/v1` for real discovery/execution (`pipmcp.com` redirects to the same product). Upgrade your MCP launch command and configure `HEYMYAPPS_API_KEY` before reconnecting. Historical local runtimes remain available under their original MIT license in Git history.
 
 ## Evidence and support
 
@@ -129,11 +132,11 @@ Transport, package and agent fixtures are tested. Authentication/provider access
 
 ## Use a manually imported API
 
-If the provider is not already available in your workspace, import your reviewed API definition, publish the selected tools and configure its connection in PipMCP. Set PIPMCP_CONNECTOR_ID=custom-api together with PIPMCP_INTEGRATION_ID and, when needed, PIPMCP_CONNECTION_ID. Then run npm run doctor or npm run server. These select your published private API; they do not change the fixed PipMCP origin or bypass hosted authorization. Leaving PIPMCP_CONNECTOR_ID unset uses alpaca. Importing requires integrations:read and integrations:write on the same PipMCP key; discovery and calls use connectors:read and connectors:call.
+If the provider is not already available in your workspace, import your reviewed API definition, publish the selected tools and configure its connection in HeyMyApps. Set `HEYMYAPPS_CONNECTOR_ID=custom-api` together with `HEYMYAPPS_INTEGRATION_ID` and, when needed, `HEYMYAPPS_CONNECTION_ID` (or the `PIPMCP_*` aliases). Then run `npm run doctor` or `npm run server`. These select your published private API; they do not change the fixed HeyMyApps origin or bypass hosted authorization. Leaving `HEYMYAPPS_CONNECTOR_ID` unset uses `alpaca`. Importing requires `integrations:read` and `integrations:write` on the same key; discovery and calls use `connectors:read` and `connectors:call`.
 
 ## Provider setup reference
 
-[Official provider documentation](https://docs.alpaca.markets/us/openapi/trading-api.json). Credentials are entered in PipMCP; this package does not accept or store provider secrets.
+[Official provider documentation](https://docs.alpaca.markets/us/openapi/trading-api.json). Credentials are entered in HeyMyApps; this package does not accept or store provider secrets.
 
 <!-- people-first:technical:end -->
 

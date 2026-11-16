@@ -1,0 +1,16 @@
+---
+name: heymyapps-alpaca
+description: Connect AI agents to Alpaca using one HeyMyApps API key and actual hosted tool discovery.
+---
+
+# Alpaca MCP setup and connection checker
+
+Read capabilities.json and README.md. Use authenticated discovery before selecting a tool. The actual server schemas and selected connection define what can run; never infer tool names from the repository title.
+
+Use `HEYMYAPPS_API_KEY` for HeyMyApps (`PIPMCP_API_KEY` remains a supported alias). Provider credentials belong in the hosted product. Do not request another AI model API key for these instructions. Never print keys or commit result records.
+
+Published Alpaca integrations can include trading tools such as `create_order` that place real orders. Confirm with the user before calling non-read-only tools.
+
+For a no-network setup plan run `npm start`. For authenticated discovery run `npm run doctor` after the user supplies an authorized scoped key. This is a setup utility; it does not establish an installed or live connector.
+
+Preserve policy/approval receipts and stable idempotency keys. Pending is not completed. Uncertain writes must be reconciled; never retry with a new key to bypass a hold. Existing MCP client approval and hosted policy remain authoritative.

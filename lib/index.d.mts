@@ -9,7 +9,8 @@ export interface TransportOptions {apiKey?:string;fetchImpl?:typeof fetch;timeou
 export interface Selection {integrationId?:string;connectionId?:string;signal?:AbortSignal}
 export interface GatewayCallBody {tool:string;arguments:Record<string,JsonValue>;integration_id?:string;connection_id?:string}
 export class PipMCPGatewayError extends Error {constructor(code:string,message:string,details?:{status?:number;retryAfter?:string|null;result?:unknown});code:string;status:number;retryAfter:string|null;result:unknown;request?:{idempotencyKey:string;connectorId:string;callId:string|null;state:string}}
-export const apiBase:'https://pipmcp.com/api/v1';
+export const apiBase:'https://heymyapps.com/api/v1';
+export function gatewayEnv(name:'API_KEY'|'INTEGRATION_ID'|'CONNECTION_ID'|'CONNECTOR_ID',env?:NodeJS.ProcessEnv):string|undefined;
 export class PipMCPGatewayClient {
  constructor(options?:TransportOptions);
  listConnectors(options?:{signal?:AbortSignal}):Promise<GatewayEnvelope<ConnectorSummary[]>>;
@@ -18,7 +19,7 @@ export class PipMCPGatewayClient {
  callTool(connectorId:string,tool:string,args:Record<string,JsonValue>,options:Selection&{idempotencyKey:string}):Promise<GatewayEnvelope<CallReceipt>>;
  getCall(connectorId:string,callId:string,options?:{signal?:AbortSignal}):Promise<GatewayEnvelope<CallReceipt>>;
 }
-export {PipMCPGatewayClient as PipMCPClient};
+export {PipMCPGatewayClient as PipMCPClient,PipMCPGatewayClient as HeyMyAppsGatewayClient};
 export interface GatewayRequestMeta {[key:string]:unknown;'pipmcp/idempotencyKey'?:string;'pipmcp/approved'?:boolean;'pipmcp/resumeCall'?:boolean}
 export interface BridgeReceipt {idempotencyKey:string;connectorId:string;operation:string;freshWriteRequiresExplicitKey?:boolean;resumeRequires?:string}
 export interface GatewayBridgeOptions extends TransportOptions {connectorId?:string;providerId?:string;integrationId?:string;connectionId?:string;stateDir?:string;client?:PipMCPGatewayClient}
